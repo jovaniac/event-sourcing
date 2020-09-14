@@ -1,0 +1,13 @@
+version: '3'
+services:
+   localMq:
+     image: ibmcom/mq
+     environment:
+       LICENSE: accept
+       MQ_QMGR_NAME: QM1
+     # MQSNOAUT - This environment variable disables all authorization checking in MQ. 
+     # This is not recommended for production environments
+       MQSNOAUT: "yes"
+     ports:
+       - "1414:1414"
+       - "9443:9443"
